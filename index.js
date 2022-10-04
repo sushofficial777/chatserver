@@ -9,11 +9,14 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "https://melodic-salmiakki-1ca008.netlify.app",
     methods: ["GET", "POST"],
   },
 });
 
+app.get('/hello',(req,res)=>{
+  res.send("this route is connected")
+})
 io.on("connection", (socket) => {
   console.log(`User Connected: ${socket.id}`);
 
